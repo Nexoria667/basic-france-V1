@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-brand: 'Syne', 'Outfit', system-ui, sans-serif;
+    --font-luxury: 'Syncopate', 'Syne', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #06080e;
+    color: #f1f5f9;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(29, 78, 216, 0.22), transparent),
+      radial-gradient(circle 600px at 100% 40%, rgba(30, 58, 138, 0.12), transparent),
+      radial-gradient(circle 600px at 0% 75%, rgba(29, 78, 216, 0.10), transparent);
+    background-attachment: fixed;
+  }
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+.font-luxury {
+  font-family: var(--font-luxury);
+}
+
+/* Luxury Cyber Glow & Tech Corner Badges */
+.bfs-card {
+  position: relative;
+  background: linear-gradient(180deg, #0d1222 0%, #070a14 100%);
+  border: 1px solid #1c2642;
+  box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.7), inset 0 1px 0 0 rgba(96, 165, 250, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bfs-card:hover {
+  border-color: #2e3e6b;
+  box-shadow: 0 16px 36px -10px rgba(30, 58, 138, 0.35), inset 0 1px 0 0 rgba(96, 165, 250, 0.25);
+}
+
+.bfs-glow {
+  text-shadow: 0 0 16px rgba(59, 130, 246, 0.65);
+}
+
+/* Subtle modern scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06080e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2638;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2b3550;
+}
+
+/* Subtle micro-animations without visual clutter */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes successPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.55) rotate(-12deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.08) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes successRing {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.65);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.15);
+  }
+}
+
+@keyframes successConfetti {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0) scale(0.3);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--confetti-x), var(--confetti-y)) rotate(var(--confetti-rotation)) scale(1);
+  }
+}
+
+@keyframes successShine {
+  from {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
+@keyframes successReducedMotion {
+  from {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-success-pop {
+  animation: successPop 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-success-ring {
+  animation: successRing 950ms 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-confetti {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: successConfetti 950ms 160ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-confetti-1 { --confetti-x: -74px; --confetti-y: -54px; --confetti-rotation: -110deg; background: #6ee7b7; }
+.success-confetti-2 { --confetti-x: -50px; --confetti-y: 48px; --confetti-rotation: 145deg; background: #60a5fa; animation-delay: 220ms; }
+.success-confetti-3 { --confetti-x: -22px; --confetti-y: -75px; --confetti-rotation: 75deg; background: #fcd34d; animation-delay: 100ms; }
+.success-confetti-4 { --confetti-x: 22px; --confetti-y: 70px; --confetti-rotation: 185deg; background: #a78bfa; animation-delay: 250ms; }
+.success-confetti-5 { --confetti-x: 52px; --confetti-y: -56px; --confetti-rotation: 130deg; background: #6ee7b7; animation-delay: 190ms; }
+.success-confetti-6 { --confetti-x: 76px; --confetti-y: 35px; --confetti-rotation: 240deg; background: #60a5fa; animation-delay: 130ms; }
+.success-confetti-7 { --confetti-x: -82px; --confetti-y: 5px; --confetti-rotation: 210deg; background: #f472b6; animation-delay: 280ms; }
+.success-confetti-8 { --confetti-x: 82px; --confetti-y: -4px; --confetti-rotation: 115deg; background: #fcd34d; animation-delay: 300ms; }
+
+.animate-success-shine {
+  animation: successShine 1.2s 350ms ease-out both;
+}
+
+.success-message-enter {
+  animation: fadeIn 550ms 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-stagger > * {
+  animation: fadeIn 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-stagger > *:nth-child(1) { animation-delay: 120ms; }
+.success-stagger > *:nth-child(2) { animation-delay: 300ms; }
+.success-stagger > *:nth-child(3) { animation-delay: 480ms; }
+.success-stagger > *:nth-child(4) { animation-delay: 660ms; }
+.success-stagger > *:nth-child(5) { animation-delay: 840ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-success-ring,
+  .animate-success-shine,
+  .success-confetti {
+    animation: none;
+  }
+
+  .animate-success-pop {
+    animation: successReducedMotion 450ms ease-out both;
+  }
+
+  .success-message-enter {
+    animation: fadeIn 400ms ease-out both;
+  }
+
+  .success-stagger > * {
+    animation: fadeIn 350ms ease-out both;
+  }
+
+  .success-stagger > *:nth-child(2) { animation-delay: 80ms; }
+  .success-stagger > *:nth-child(3) { animation-delay: 160ms; }
+  .success-stagger > *:nth-child(4) { animation-delay: 240ms; }
+  .success-stagger > *:nth-child(5) { animation-delay: 320ms; }
+}

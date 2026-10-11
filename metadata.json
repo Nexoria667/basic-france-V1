@@ -1,0 +1,8 @@
+{
+  "name": "BASIC FRANCE V1",
+  "description": "Plateforme e-commerce digitale premium et communauté Discord pour BASIC FRANCE. Accès instantanés, pass clubs, programmes et livraisons numériques automatisées.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
